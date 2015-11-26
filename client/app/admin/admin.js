@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ng-admin', 'ui.tinymce', 'lbServices']);
+var myApp = angular.module('myApp', ['ng-admin', 'lbServices']);
 
 myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvider) {
   var nga = NgAdminConfigurationProvider;
