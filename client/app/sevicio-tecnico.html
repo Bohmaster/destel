@@ -82,12 +82,12 @@
 </div>
 
 <div class="w-section seccpromo" id="promo" ng-controller="SeccionController">
-  <div class="promociones"><span class="promos">{{ seccion.nombre }}</span>
-    <span class="promos" style="font-size: 15px !important;">{{ seccion.descripcion }}</span>
+  <div class="promociones"><span class="promos">{{ seccion.nombre }}</span> <br/>
+    <span class="promos" style="font-size: 25px; color: black;">{{ seccion.descripcion }}</span>
   </div>
-  <div class="w-container contpromo">
-    <div style="float: left; position: relative; width: auto; margin: 6px;" ng-repeat="b in bloques">
-      <img src="storage/images/{{b.image}}" alt=""/>
+  <div class="w-container contpromo" style="text-align: center">
+    <div style="display: inline-block; position: relative; width: auto; margin: 6px;" ng-repeat="b in bloques" >
+      <img src="storage/images/{{b.image}}" width="250" alt=""/>
     </div>
   </div>
 </div>

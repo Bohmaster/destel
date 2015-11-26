@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ng-admin', 'ui.tinymce']);
+var myApp = angular.module('myApp', ['ng-admin', 'ui.tinymce', 'lbServices']);
 
 myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvider) {
   var nga = NgAdminConfigurationProvider;
@@ -234,7 +234,7 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
   ]);
 
   Promocion.listView().fields([
-    nga.field('title', 'text'),
+    nga.field('title', 'text').isDetailLink(true).detailLinkRoute("show"),
     nga.field('image', 'template')
       .label('Imagen')
       .template('<imagen data="image"></imagen>')
@@ -246,13 +246,17 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
    * SeccionX
    */
 
+  var Bloque = nga.entity('bloques').label('Bloques');
+
+  admin.addEntity(Bloque);
+
   var SeccionX = nga.entity('SeccionXes').label('Seccion X');
 
   SeccionX.listView().fields([
-    nga.field('nombre', 'text'),
+    nga.field('nombre', 'text').isDetailLink(true).detailLinkRoute("show"),
     nga.field('descripcion', 'text'),
     nga.field('bloques', 'referenced_list')
-      .targetEntity(nga.entity('bloques'))
+      .targetEntity(Bloque)
       .targetReferenceField('seccionXId')
       .targetFields([
         nga.field('image')
@@ -260,6 +264,42 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
       .sortField('title')
       .sortDir('DESC')
       .label('Bloques')
+  ]);
+
+  SeccionX.creationView().fields([
+    nga.field('nombre', 'text'),
+    nga.field('descripcion', 'text'),
+    nga.field('bloques', 'referenced_list')
+      .targetEntity(Bloque)
+      .targetReferenceField('seccionXId')
+      .targetFields([
+        nga.field('image')
+      ])
+      .sortField('title')
+      .sortDir('DESC')
+      .label('Bloques')
+  ]);
+
+  SeccionX.editionView().fields([
+    nga.field('nombre', 'text'),
+    nga.field('descripcion', 'text'),
+    nga.field('bloques', 'referenced_list')
+      .targetEntity(Bloque)
+      .targetReferenceField('seccionXId')
+      .targetFields([
+        nga.field('image')
+      ])
+      .sortField('title')
+      .sortDir('DESC')
+      .label('Bloques')
+  ]);
+
+  SeccionX.showView().fields([
+    nga.field('nombre', 'text'),
+    nga.field('descripcion', 'text'),
+    nga.field('bloques', 'template')
+      .label('Bloques')
+      .template('<bloques></bloques>')
   ]);
 
   admin.addEntity(SeccionX);

@@ -322,3 +322,85 @@ myApp.directive('compiles', function($compile) {
 
   }
 });
+
+myApp.directive('bloques', function() {
+  return {
+    restrict: 'EA',
+    templateUrl: 'fields/blocks.html',
+    controller: function($scope, Bloque) {
+
+      $scope.bloques = [];
+
+      loadBlocks();
+
+      $scope.onFileSelect = function($files) {
+
+        console.log("File/s selected", $files);
+
+        $scope.files = $files;
+
+        console.log($scope);
+
+        console.log($scope.files);
+
+      };
+
+      $scope.addBlock = function() {
+        var formData = new FormData();
+
+        // formData.append("categoryId", $scope.entry.values['id']);
+        console.log($scope.files);
+
+        for (var index in $scope.files) {
+          console.log(index);
+          var file = $scope.files[index];
+          formData.append('file', file);
+        }
+
+        $.ajax({
+          url: URL_BASE + 'containers/images/upload',
+          type: 'POST',
+          data: formData,
+          processData: false,  // tell jQuery not to process the data
+          contentType: false,  // tell jQuery not to set contentType
+          success : function(data) {
+            console.log(data);
+            Bloque.create({
+              image: $scope.files[0].name,
+              seccionXId: $scope.entry.values['id']
+            }, function(data) {
+              console.log(data);
+              loadBlocks();
+            }, function(err) {
+              console.log(err);
+            });
+          }
+        });
+
+        console.log($scope.entry);
+      };
+
+      $scope.removeBlock = function(id) {
+        Bloque.deleteById({
+          id: id
+        }, function(data) {
+          console.log(data);
+          loadBlocks();
+        });
+      };
+
+      function loadBlocks() {
+        Bloque.find({
+          filter: {
+            where: {
+              seccionXId: $scope.entry.values['id']
+            }
+          }
+        }, function(data) {
+          $scope.bloques = data;
+        });
+      }
+
+    }
+  }
+});

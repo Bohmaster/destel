@@ -11,9 +11,9 @@ angular.module('Destel')
 
     $scope.sliders = [];
 
-    $scope.destacados = [];
-
     $scope.fajas = [];
+
+    $scope.destacados_dni = [];
 
     loadSliders();
 
@@ -33,13 +33,45 @@ angular.module('Destel')
     }
 
     function loadDestacados() {
-      Destacado.find(function(data) {
-        $scope.destacados = data;
-        console.log(data);
+      Destacado.find({
+        filter: {
+          where: {
+            categoriaId: 1
+          },
+          limit: 2,
+          order: 'id DESC'
+        }},
+      function(data) {
+        $scope.destacados_dni = data;
+        console.log(1, $scope.destacados_dni);
       });
+      Destacado.find({
+          filter: {
+            where: {
+              categoriaId: 2
+            },
+            limit: 2,
+            order: 'id DESC'
+          }},
+        function(data) {
+          $scope.destacados_veni = data;
+          console.log(2, data);
+        });
 
       console.log($scope.destacados);
     }
+    Destacado.find({
+        filter: {
+          where: {
+            categoriaId: 3
+          },
+          limit: 2,
+          order: 'id DESC'
+        }},
+      function(data) {
+        $scope.destacados_cuit = data;
+        console.log(3, data);
+      });
 
     function loadFajas() {
       Faja.find(function (data) {
@@ -56,8 +88,5 @@ angular.module('Destel')
       });
 
     }
-
-
-
 
   });
