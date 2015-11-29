@@ -69,7 +69,8 @@
                 <div>Servicios</div>
                 <div class="w-icon-dropdown-toggle icondrop"></div>
               </div>
-              <nav class="w-dropdown-list droplist" data-ix="desplazar"><a class="w-dropdown-link textdrop" href="views/equipos.html">Equipos</a><a class="w-dropdown-link textdrop" href="accesorios.html">Accesorios</a><a class="w-dropdown-link textdrop" href="sevicio-tecnico.html">Servicio técnico</a>
+
+              <nav class="w-dropdown-list droplist" data-ix="desplazar"><a class="w-dropdown-link textdrop" href="views/equipos.html">Equipos</a><a class="w-dropdown-link textdrop" href="accesorios.html">Accesorios</a><a class="w-dropdown-link textdrop" href="seccion.html">{{seccion[0].nombre}}</a>
               </nav>
             </div><a class="w-nav-link botonnavbar" href="#promos">Destacados</a><a class="w-nav-link botonnavbar" href="#promo">Promociones</a><a class="w-nav-link botonnavbar" href="#contacto">Contacto</a>
           </nav>
@@ -146,6 +147,7 @@
                 <br>{{uno.name}}</div>
               <div class="w-clearfix divpromo">
                 <div class="divpromo1">{{uno.price_dni}}</div>
+                <div class="textiva" ng-if="uno.iva">Precio + IVA</div>
                 <div class="divpromo2" bg="{{uno.cuadro_1}}">
                 </div>
                 <div class="divpromo3" bg="{{uno.cuadro_2}}">
@@ -169,6 +171,7 @@
                 <br>{{uno.name}}</div>
               <div class="w-clearfix divpromo">
                 <div class="divpromo1">{{uno.price_dni}}</div>
+                <div class="textiva" ng-if="uno.iva">Precio + IVA</div>
                 <div class="divpromo2" bg="{{uno.cuadro_1}}">
                 </div>
                 <div class="divpromo3" bg="{{uno.cuadro_2}}">
@@ -191,6 +194,7 @@
                 <br>{{uno.name}}</div>
               <div class="w-clearfix divpromo">
                 <div class="divpromo1">{{uno.price_dni}}</div>
+                <div class="textiva" ng-if="uno.iva">Precio + IVA</div>
                 <div class="divpromo2" bg="{{uno.cuadro_1}}">
                 </div>
                 <div class="divpromo3" bg="{{uno.cuadro_2}}">
@@ -272,7 +276,7 @@
   </div>
   <div class="w-section seccfooter">
     <div class="w-container">
-      <div class="textfooter">DESTEL&nbsp;&nbsp;|&nbsp;&nbsp;2015&nbsp;&nbsp;|&nbsp;&nbsp;Todos los derechos reservados</div>
+      <div class="textfooter" ng-click="goToAdmin()">DESTEL&nbsp;&nbsp;|&nbsp;&nbsp;2015&nbsp;&nbsp;|&nbsp;&nbsp;Todos los derechos reservados</div>
     </div>
   </div>
 

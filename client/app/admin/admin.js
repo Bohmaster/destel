@@ -37,6 +37,14 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
       .template('<upload></upload>')
   ]);
 
+  Slider.editionView().fields([
+    nga.field('title', 'text'),
+    nga.field('description', 'text'),
+    nga.field('image', 'template')
+      .label('Subir imagen')
+      .template('<upload></upload>')
+  ]);
+
   admin.addEntity(Slider);
 
   /**
@@ -56,6 +64,19 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
   ]);
 
   Equipo.creationView().fields([
+    nga.field('name', 'text'),
+    nga.field('description', 'text'),
+    nga.field('cuatroG', 'boolean'),
+    nga.field('image', 'template')
+      .label('Subir imagen')
+      .template('<upload></upload>'),
+    nga.field('price_cuit', 'text'),
+    nga.field('price_dni', 'text'),
+    nga.field('particular', 'boolean'),
+    nga.field('empresa', 'boolean')
+  ]);
+
+  Equipo.editionView().fields([
     nga.field('name', 'text'),
     nga.field('description', 'text'),
     nga.field('cuatroG', 'boolean'),
@@ -109,6 +130,7 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
       .template('<upload></upload>'),
     nga.field('price_cuit', 'text'),
     nga.field('price_dni', 'text'),
+    nga.field('iva', 'boolean'),
     nga.field('categoriaId', 'reference')
       .targetEntity(Categoria)
       .targetField(nga.field('nombre'))
@@ -140,6 +162,7 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
       .template('<upload></upload>'),
     nga.field('price_cuit', 'text'),
     nga.field('price_dni', 'text'),
+    nga.field('iva', 'boolean'),
     nga.field('categoriaId', 'reference')
       .targetEntity(Categoria)
       .targetField(nga.field('nombre'))
@@ -190,7 +213,9 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
       .template('<imagen data="image"></imagen>')
   ]);
 
-  Faja.creationView().fields([
+
+
+  Faja.editionView().fields([
     nga.field('title', 'text'),
     nga.field('image', 'template')
       .label('Imagen')
@@ -212,13 +237,6 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
 
   var Promocion = nga.entity('promotions').label('Promociones');
 
-  Promocion.listView().fields([
-    nga.field('title', 'text'),
-    nga.field('image', 'template')
-      .label('Imagen')
-      .template('<imagen data="image"></imagen>')
-  ]);
-
   Promocion.showView().fields([
     nga.field('title', 'text'),
     nga.field('image', 'template')
@@ -227,6 +245,13 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
   ]);
 
   Promocion.creationView().fields([
+    nga.field('title', 'text'),
+    nga.field('image', 'template')
+      .label('Imagen')
+      .template('<upload></upload>')
+  ]);
+
+  Promocion.editionView().fields([
     nga.field('title', 'text'),
     nga.field('image', 'template')
       .label('Imagen')
@@ -269,29 +294,17 @@ myApp.config(['NgAdminConfigurationProvider', function(NgAdminConfigurationProvi
   SeccionX.creationView().fields([
     nga.field('nombre', 'text'),
     nga.field('descripcion', 'text'),
-    nga.field('bloques', 'referenced_list')
-      .targetEntity(Bloque)
-      .targetReferenceField('seccionXId')
-      .targetFields([
-        nga.field('image')
-      ])
-      .sortField('title')
-      .sortDir('DESC')
+    nga.field('bloques', 'template')
       .label('Bloques')
+      .template('<bloques></bloques>')
   ]);
 
   SeccionX.editionView().fields([
     nga.field('nombre', 'text'),
     nga.field('descripcion', 'text'),
-    nga.field('bloques', 'referenced_list')
-      .targetEntity(Bloque)
-      .targetReferenceField('seccionXId')
-      .targetFields([
-        nga.field('image')
-      ])
-      .sortField('title')
-      .sortDir('DESC')
+    nga.field('bloques', 'template')
       .label('Bloques')
+      .template('<bloques></bloques>')
   ]);
 
   SeccionX.showView().fields([

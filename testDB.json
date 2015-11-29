@@ -5,11 +5,11 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Slider": 3,
+    "Slider": 5,
     "Faja": 3,
     "container": 1,
     "Equipo": 6,
-    "Destacado": 17,
+    "Destacado": 18,
     "Categoria": 4,
     "Promotion": 9,
     "SeccionX": 2,
@@ -22,7 +22,7 @@
     "RoleMapping": {},
     "Role": {},
     "Slider": {
-      "1": "{\"title\":\"asdasda\",\"description\":\"dasdasdada\",\"image\":\"banner 1_1.jpg\",\"images\":[{}],\"id\":1}",
+      "1": "{\"title\":\"asdasdaasdasd\",\"description\":\"dasdasdadaasd\",\"image\":\"Mechanic Eye.jpg\",\"images\":[{}],\"id\":1}",
       "2": "{\"title\":\"asdasd\",\"description\":\"asdsadasda\",\"image\":\"banner 3.jpg\",\"images\":[{}],\"id\":2}"
     },
     "Faja": {
@@ -40,7 +40,8 @@
     "Destacado": {
       "14": "{\"cuadro_1\":\"fantasma.png\",\"cuadro_2\":\"nob1.png\",\"cuadro_3\":\"nob2.png\",\"cuadro_4\":\"nob3.png\",\"description\":\"Lo mejor de motorla\",\"image\":\"nokia-lumia-635_copia_pjpsww.png\",\"name\":\"E Lte\",\"price_cuit\":null,\"price_dni\":\"1899\",\"cuatroG\":true,\"particular\":true,\"empresa\":false,\"categoriaId\":1,\"images\":[{}],\"id\":14,\"marca\":\"Motorla\"}",
       "15": "{\"cuadro_1\":\"fantasma.png\",\"cuadro_2\":\"nob1.png\",\"cuadro_3\":\"nob2.png\",\"cuadro_4\":\"nob3.png\",\"description\":null,\"image\":\"nokia-lumia-635_copia_pjpsww.png\",\"name\":\"Test 2\",\"price_cuit\":null,\"price_dni\":null,\"cuatroG\":false,\"particular\":false,\"empresa\":false,\"categoriaId\":1,\"images\":[{}],\"id\":15}",
-      "16": "{\"cuadro_1\":null,\"cuadro_2\":null,\"cuadro_3\":null,\"cuadro_4\":null,\"description\":\"dsasdadsassdsad\",\"image\":null,\"name\":\"dadsa\",\"price_cuit\":\"asd\",\"price_dni\":\"adadadsa\",\"cuatroG\":true,\"particular\":true,\"empresa\":false,\"marca\":\"adasdasasdasdad\",\"categoriaId\":2,\"images\":[{}],\"id\":16}"
+      "16": "{\"cuadro_1\":null,\"cuadro_2\":null,\"cuadro_3\":null,\"cuadro_4\":null,\"description\":\"dsasdadsassdsad\",\"image\":null,\"name\":\"dadsa\",\"price_cuit\":\"asd\",\"price_dni\":\"adadadsa\",\"cuatroG\":true,\"particular\":true,\"empresa\":false,\"marca\":\"adasdasasdasdad\",\"categoriaId\":2,\"images\":[{}],\"id\":16}",
+      "17": "{\"cuadro_1\":null,\"cuadro_2\":null,\"cuadro_3\":null,\"cuadro_4\":null,\"iva\":true,\"description\":\"adasdasdas\",\"image\":null,\"name\":\"asdadasd\",\"price_cuit\":\"asdasd\",\"price_dni\":\"adasdad\",\"cuatroG\":true,\"particular\":false,\"empresa\":false,\"marca\":\"asda\",\"categoriaId\":2,\"id\":17}"
     },
     "Categoria": {
       "1": "{\"nombre\":\"Línea nueva y cambio de terminal(DNI)\",\"descripcion\":\"\",\"id\":1}",

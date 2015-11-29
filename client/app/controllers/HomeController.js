@@ -1,7 +1,22 @@
 'use strict';
 
 angular.module('Destel')
-  .controller('HomeController', function($scope, Slider, Destacado, Faja, Promotion) {
+  .controller('HomeController', function($scope, Slider, Destacado, Faja, Promotion, SeccionX) {
+
+    $scope.seccion = [];
+
+    SeccionX.find(function(data) {
+      $scope.seccion = data;
+      console.log('asd', $scope.seccion);
+    });
+
+    $scope.goToAdmin = function() {
+      var password = prompt('Ingrese el password de area');
+
+      if (password == "admin") {
+        window.location.assign('http://localhost:3000/admin');
+      }
+    };
 
     $scope.title = "Destel Norte";
 
